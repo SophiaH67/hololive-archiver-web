@@ -11,10 +11,12 @@ import { browser } from "$app/env";
     jobs.set(newJobs);
   };
 
+  let interval;
+
   onMount(() => {
-    if (!browser) return;
+    if (!browser || interval) return;
     updateJobs();
-    setInterval(updateJobs, 5000);
+    interval = setInterval(updateJobs, 5000);
   });
 
   let filterText = "";
