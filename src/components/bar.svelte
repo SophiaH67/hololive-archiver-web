@@ -2,7 +2,7 @@
   import { settings } from '$lib/stores'
 </script>
 
-<nav class="bg-purple-500 h-12 mb-2 shadow-lg flex px-4 justify-between items-center">
+<nav class="bg-purple-500 h-12 mb-2 shadow-lg flex px-4 justify-between items-center dark:bg-purple-700">
   <h2 class="text-white text-xl my-auto whitespace-nowrap">Hololive Archiver</h2>
   <div>
     <a href="/" class="text-white text-sm">JOBS</a>

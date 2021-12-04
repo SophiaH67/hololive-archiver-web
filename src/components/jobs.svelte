@@ -28,7 +28,7 @@ import { browser } from "$app/env";
   $: sortedJobs = filteredJobs.sort((a, b) => b.id - a.id);
 </script>
 
-<div class="bg-white border rounded-none container min-w-max mx-auto shadow-md  mb-2">
+<div class="bg-white border rounded-none container min-w-max mx-auto shadow-md mb-2 text-gray-800 dark:bg-gray-800 dark:border-gray-700">
   <!-- Toolbar -->
   <header>
     <input
@@ -42,7 +42,7 @@ import { browser } from "$app/env";
   <!-- Jobs -->
   <table class="w-full border-collapse">
     <thead>
-      <tr>
+      <tr class="border font-sans text-gray-800 font-normal px-4 py-2 dark:border-gray-700 dark:text-gray-200">
         <th class="sm:pl-4">#</th>
         <th>URL</th>
         <th>Status</th>
@@ -58,6 +58,5 @@ import { browser } from "$app/env";
 <style>
   th {
     text-align: left;
-    @apply border font-sans font-normal text-gray-800 px-4 py-2;
   }
 </style>
