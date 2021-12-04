@@ -42,7 +42,7 @@ import { browser } from "$app/env";
   <!-- Jobs -->
   <table class="w-full border-collapse">
     <thead>
-      <tr class="border font-sans text-gray-800 font-normal px-4 py-2 dark:border-gray-700 dark:text-gray-200">
+      <tr class="border font-sans text-gray-800 font-normal px-4 py-2 dark:border-gray-700 dark:text-gray-300">
         <th class="sm:pl-4">#</th>
         <th>URL</th>
         <th>Status</th>
