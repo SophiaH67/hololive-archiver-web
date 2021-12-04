@@ -19,7 +19,13 @@ import { browser } from "$app/env";
 
 <div class="bg-white dark:bg-gray-900 min-h-screen pb-2">
   <Bar />
-  <div class="bg-white border rounded-none container min-w-max mx-auto shadow-md text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+  <div class="con bg-white border rounded-none container min-w-max mx-auto shadow-md text-gray-800 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
     <slot />
   </div>
 </div>
+
+<style>
+  .con {
+    max-width: 95%;
+  }
+</style>
