@@ -8,7 +8,7 @@ export const getAllJobs = async () => {
   return response.map((job) => new Job(job));
 };
 
-export const getJob = async (id: string) => {
+export const getJob = async (id: number) => {
   const response: Job = await (await fetch(`${API_URL}/job/${id}`)).json();
   return new Job(response);
 };
