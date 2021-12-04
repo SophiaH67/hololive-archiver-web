@@ -6,7 +6,7 @@
   <h2 class="text-white text-xl my-auto whitespace-nowrap">Hololive Archiver</h2>
   <div>
     <a href="/" class="text-white text-sm">JOBS</a>
-    <a href="/" class="text-white text-sm">OPTIONS</a>
+    <a href="/options" class="text-white text-sm">OPTIONS</a>
     <button
       class="text-white text-sm"
       on:click={() => {
