@@ -19,5 +19,7 @@ import { browser } from "$app/env";
 
 <div class="bg-white dark:bg-gray-900 min-h-screen">
   <Bar />
-  <slot />
+  <div class="bg-white border rounded-none container min-w-max mx-auto shadow-md mb-2 text-gray-800 dark:bg-gray-800 dark:border-gray-700">
+    <slot />
+  </div>
 </div>
