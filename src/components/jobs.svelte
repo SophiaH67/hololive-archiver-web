@@ -67,7 +67,7 @@ import { browser } from "$app/env";
     - Status
     - automatic
     - final_location
-  A user can view the following:
+    - Handler
     - Error
     - IP
     - hostname
@@ -99,6 +99,12 @@ import { browser } from "$app/env";
       <Input
         label="Final Location"
         bind:value={modalJob.final_location}
+        disabled={modalJob.automatic}
+      />
+      <!-- Handler -->
+      <Input
+        label="Handler"
+        bind:value={modalJob.handler}
         disabled={modalJob.automatic}
       />
       <!-- Status -->
