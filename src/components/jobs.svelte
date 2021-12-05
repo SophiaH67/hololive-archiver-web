@@ -56,7 +56,7 @@ import { browser } from "$app/env";
   </thead>
   <tbody>
     {#each sortedJobs as job}
-        <Job job={job} on:click={()=>modalJob=job} />
+        <Job job={job} on:click={()=>modalJob={...job}} />
     {/each}
   </tbody>
 </table>
@@ -134,35 +134,51 @@ import { browser } from "$app/env";
   </div>
   <!-- Actions -->
   <div class="px-2 py-4 flex justify-around w-full">
-    <!-- Automatic toggle button -->
-    <div>
-    <label 
-      for="automatic"
-      class="flex items-center cursor-pointer"
+    <!-- Automatic toggle switch -->
+    <!-- 2 buttons next to each other on the same line with no space between them.
+      The first button is active when automatic is false, the second when it is true.
+      The first button is disabled when automatic is false, the second when it is true.
+      Clicking the first button sets automatic to true, clicking the second sets it to false.
+    -->
+    <div class="flex items-center">
+      <!-- Disabled is active -->
+    <button
+      class="text-gray-600 px-1 rounded-l-md border border-gray-600 border-r-0 disabled:border-r disabled:text-purple-500 disabled:border-purple-500 disabled:font-semibold"
+      disabled={!modalJob.automatic}
+      on:click={() => modalJob.automatic = false}
     >
-      <!-- toggle -->
-      <div class="relative">
-        <!-- input -->
-        <input id="automatic" bind:checked={modalJob.automatic} on:change={async ()=>{
-          if (modalJob.automatic) modalJob = await getJob(modalJob.id);
-        }} type="checkbox" class="sr-only" />
-        <!-- line -->
-        <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-        <!-- dot -->
-        <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-      </div>
-      <!-- label -->
-      <div class="ml-3 text-gray-700 dark:text-gray-400">
-        Automatic
-      </div>
-    </label>
-    
+      Manual
+    </button>
+    <button
+      class="text-gray-600 px-1 rounded-r-md border border-gray-600 border-l-0 disabled:border-l disabled:text-purple-500 disabled:border-purple-500 disabled:font-semibold"
+      disabled={modalJob.automatic}
+      on:click={() => modalJob.automatic = true}
+    >
+      Automatic
+    </button>
   </div>
+    
     <!-- Save Button -->
     <button
       class="text-gray-600 dark:text-gray-400"
       on:click={async () => {
-        await updateJob(modalJob);
+        const oldJob = await getJob(modalJob.id);
+        if (oldJob.automatic && modalJob.automatic) {
+          // If the job was automatic and is now automatic, do nothing
+        }
+        // Either the old state or new state is now automatic
+        // If the new state is automatic, we only need to update the automatic field
+        else if (modalJob.automatic) {
+          updateJob({
+            ...oldJob,
+            automatic: true,
+          });
+        }
+        // If the old state was automatic, that means the new state is manual, so we need to update everything
+        else {
+          updateJob(modalJob);
+        }
+        // Close the modal
         modalJob = null;
       }}
     >Save</button>
