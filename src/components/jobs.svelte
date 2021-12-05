@@ -174,7 +174,7 @@ import { browser } from "$app/env";
             automatic: true,
           });
         }
-        // If the old state was automatic, that means the new state is manual, so we need to update everything
+        // Either something changed, or the job is now manual
         else {
           updateJob(modalJob);
         }
