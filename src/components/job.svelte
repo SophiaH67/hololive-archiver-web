@@ -5,7 +5,7 @@
 </script>
 
 <tr
-  class="h-12 border border-white font-sans text-gray-900 bg-white hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+  class="h-12 border border-white font-sans text-gray-900 bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-700 dark:text-white"
   on:click
   >
   <td class="sm:pl-4">
