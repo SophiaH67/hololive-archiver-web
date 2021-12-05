@@ -163,7 +163,16 @@ import { browser } from "$app/env";
       class="text-gray-600 dark:text-gray-400"
       on:click={async () => {
         const oldJob = await getJob(modalJob.id);
-        if (oldJob.automatic && modalJob.automatic) {
+        // Check if the job has changed
+        if (oldJob.url === modalJob.url &&
+            oldJob.final_location === modalJob.final_location &&
+            oldJob.handler === modalJob.handler &&
+            oldJob.status === modalJob.status &&
+            oldJob.error === modalJob.error &&
+            oldJob.ip === modalJob.ip &&
+            oldJob.hostname === modalJob.hostname) {
+        } 
+        else if (oldJob.automatic && modalJob.automatic) {
           // If the job was automatic and is now automatic, do nothing
         }
         // Either the old state or new state is now automatic
