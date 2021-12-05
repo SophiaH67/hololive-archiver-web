@@ -13,6 +13,5 @@
     type="text"
     disabled={disabled}
     bind:value
-    on:input={(e) => console.log(e.target)}
   />
 </div>
